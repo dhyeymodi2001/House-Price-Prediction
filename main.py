@@ -7,7 +7,7 @@ import logging
 import os
 
 # Get the absolute path of the model
-MODEL_PATH = os.path.join(os.path.dirname(__file__), "../models/house_price_model.pkl")
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "house_price_model.pkl")
 
 # Load the trained model
 try:
