@@ -7,17 +7,22 @@ import logging
 import os
 
 # Get the absolute path of the model
-MODEL_PATH = os.path.join(os.path.dirname(__file__), "/models/house_price_model.pkl")
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "models", "house_price_model.pkl")
 print(f"Model path: {MODEL_PATH}")
 
-# Load the trained model
 try:
-    print(f"Files in models directory: {os.listdir(os.path.join(os.path.dirname(__file__), 'models'))}") #added line
+    print(f"Files in models directory: {os.listdir(os.path.join(os.path.dirname(__file__), 'models'))}")
+    MODEL_PATH = os.path.join(os.path.dirname(__file__), "models", "house_price_model.pkl")
+    print(f"Attempting to load model from: {MODEL_PATH}")
     model = joblib.load(MODEL_PATH)
     logging.info("Model loaded successfully.")
-except FileNotFoundError:
+except FileNotFoundError as e:
     model = None
-    logging.error("Model file not found. Please train and save the model.")
+    logging.error(f"Model file not found. Error: {str(e)}")
+except Exception as e:
+    model = None
+    logging.error(f"Error loading model: {str(e)}")
+
 
 # Initialize Flask app
 app = Flask(__name__)
