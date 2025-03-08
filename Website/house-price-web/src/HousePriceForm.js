@@ -107,7 +107,7 @@ const HousePriceForm = () => {
       });
 
       const response = await axios.post(
-        "http://192.168.8.102:5000/predict",
+        "https://house-price-prediction-1-kmgf.onrender.com/predict",
         dataToSend
       );
       setPrice(response.data.predicted_price);
