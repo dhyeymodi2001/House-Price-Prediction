@@ -1,0 +1,110 @@
+/* Footer.css */
+.footer {
+  background-color: #1a202c; /* Dark background */
+  color: #e2e8f0; /* Light gray text color */
+  padding: 2rem 0;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  flex-wrap: wrap; /* Ensures the layout is responsive */
+}
+
+.footer-left {
+  flex: 1;
+  margin-right: 2rem;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.footer-logo-img {
+  width: 40px; /* Adjust logo size */
+  margin-right: 1rem;
+}
+
+.footer-brand-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.footer-description {
+  font-size: 1rem;
+  color: #e2e8f0;
+}
+
+.footer-links,
+.footer-resources,
+.footer-social {
+  flex: 1;
+  margin-bottom: 2rem;
+}
+
+.footer-heading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.footer-heading2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.footer-link-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.footer-link {
+  font-size: 1rem;
+  color: #e2e8f0;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.footer-link2 {
+  font-size: 1rem;
+  color: #e2e8f0;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+.footer-social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-social-icon {
+  font-size: 1.5rem;
+  color: #e2e8f0;
+  text-decoration: none;
+}
+
+.footer-social-icon:hover {
+  color: #3b82f6; /* Blue color on hover */
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.875rem;
+  color: #a0aec0; /* Light gray text */
+}

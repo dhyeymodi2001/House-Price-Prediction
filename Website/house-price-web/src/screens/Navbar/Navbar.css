@@ -1,0 +1,102 @@
+/* Navbar styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  padding: 10px 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s ease; /* Add transition for smooth effect */
+}
+
+.navbar.scrolled {
+  background-color: white; /* Change background to white when scrolled */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+}
+
+.navbar.scrolled .navbar-links a,
+.navbar.scrolled .navbar-logo .logo {
+  color: black; /* Change link color to black when scrolled */
+}
+
+.navbar.scrolled .download-btn {
+  background-color: #16a085;
+  color: white;
+}
+
+.navbar.scrolled .download-btn:hover {
+  background-color: #1abc9c;
+}
+
+.navbar-logo,
+.navbar-button,
+.download-btn1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  align-self: center;
+  align-content: center;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-links ul {
+  display: flex;
+  text-align: center;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.navbar-links a {
+  font-size: 1.1rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: #16a085;
+}
+
+.download-btn1 {
+  background-color: #16a085;
+  color: white;
+  border: none;
+  padding: 20px 20px;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.download-btn1:hover {
+  background-color: #1abc9c;
+}
+
+.logo {
+  height: 100px;
+  width: 130px;
+}
+
+.navbar-links ul {
+  align-self: center;
+}
+
+.navbar-logo,
+.navbar-button {
+  align-self: center;
+}

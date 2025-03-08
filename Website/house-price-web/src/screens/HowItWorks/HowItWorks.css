@@ -1,0 +1,71 @@
+/* AIPredictionProcess.css */
+.ai-prediction-section {
+  background-color: #f8fafc; /* Light gray background */
+  padding: 4rem 0; /* Vertical padding */
+  margin-top: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.section-heading {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2d3748; /* Dark gray text */
+  margin-bottom: 3rem; /* Space below the heading */
+}
+
+.steps-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem; /* Space between the steps */
+}
+
+.step-card {
+  background-color: #ffffff; /* White background */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 2rem;
+  border-radius: 0.5rem;
+  width: 30%; /* Each card will take up 30% of the container width */
+  text-align: center;
+}
+
+.step-icon {
+  font-size: 3rem; /* Icon size */
+  color: #3b82f6; /* Blue color for the icons */
+  margin-bottom: 1rem; /* Space below the icon */
+}
+
+.step-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #4a5568; /* Medium gray color */
+  margin-bottom: 1rem;
+}
+
+.step-description {
+  font-size: 1rem;
+  color: #718096; /* Lighter gray color */
+}
+
+.blankspace {
+  background-color: #f4f4f4;
+  height: 2rem;
+  margin-top: 10px;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .steps-container {
+    flex-direction: column; /* Stack the steps vertically on small screens */
+    gap: 1.5rem;
+  }
+
+  .step-card {
+    width: 100%; /* Make each card take the full width on smaller screens */
+  }
+}
