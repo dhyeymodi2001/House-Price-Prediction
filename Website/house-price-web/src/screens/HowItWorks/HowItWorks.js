@@ -4,17 +4,17 @@ import "./HowItWorks.css";
 
 const HowItWorks = () => {
   return (
-    <section className="ai-prediction-section">
+    <section id="howitworks" className="ai-prediction-section">
       <div className="container">
-        <h2 className="section-heading">How Our AI Prediction Works</h2>
+        <h2 className="section-heading">How Our Predictive Model Works</h2>
         <div className="steps-container">
           {/* Step 1 */}
           <div className="step-card">
             <FaRegClipboard className="step-icon" />
             <h3 className="step-title">Input Data</h3>
             <p className="step-description">
-              Enter your property details including size, location, features,
-              and condition
+              Enter your property details including size, features, and
+              condition
             </p>
           </div>
 
@@ -23,7 +23,7 @@ const HowItWorks = () => {
             <FaBrain className="step-icon" />
             <h3 className="step-title">AI Analysis</h3>
             <p className="step-description">
-              Our AI model analyzes your data against millions of real estate
+              Our model analyzes your data against thousands of real estate
               transactions
             </p>
           </div>

@@ -120,7 +120,7 @@ const HousePriceForm = () => {
   };
 
   return (
-    <div className="form-container">
+    <div id="predict-price" className="form-container">
       <h2>Enter Property Details</h2>
       <form onSubmit={handleSubmit} className="property-form">
         {/* Property Type */}

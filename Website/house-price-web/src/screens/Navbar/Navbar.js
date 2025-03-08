@@ -23,6 +23,11 @@ const Navbar = () => {
     };
   }, []);
 
+  const handleScrollToSection = () => {
+    const section = document.getElementById("predict-price");
+    section.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
       <div className="navbar-logo">
@@ -35,25 +40,28 @@ const Navbar = () => {
       <div className="navbar-links">
         <ul>
           <li>
-            <a href="#howItWorks">How It Works?</a>
+            <a href="#howitworks">How It Works?</a>
           </li>
           <li>
-            <a href="#sourceCode">Source Code</a>
+            <a href="https://github.com/dhyeymodi2001/House-Price-Prediction">
+              Source Code
+            </a>
           </li>
           <li>
-            <a href="#blog">Blog</a>
+            <a href="https://medium.com/@dhyeymodi21/building-a-house-price-prediction-app-from-dataset-to-deployment-aebf68a9ae5c">
+              Blog
+            </a>
           </li>
           <li>
-            <a href="#contact">Contact</a>
-          </li>
-          <li>
-            <a href="#futurePlans">Future Plans</a>
+            <a href="#contactus">Contact</a>
           </li>
         </ul>
       </div>
 
       <div className="navbar-logo">
-        <button className="download-btn1">Predict Price</button>
+        <button className="download-btn1" onClick={handleScrollToSection}>
+          Predict Price
+        </button>
       </div>
     </nav>
   );
