@@ -124,6 +124,3 @@ The final predictions are saved in `submission.csv`, which can be submitted to K
 
 Contributions are welcome! Please fork the repository and submit a pull request with your changes.
 
-## Contact
-
-Dhyey Modi - dhyeymodi21@gmail.com
