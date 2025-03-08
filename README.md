@@ -5,9 +5,10 @@
 This project focuses on predicting house prices using machine learning techniques. It utilizes the Ames Housing dataset, a popular dataset for regression tasks, to build a predictive model. The project encompasses data preprocessing, exploratory data analysis, model selection, hyperparameter tuning, and final prediction generation.
 
 ### Links
+- **Medium Article**: [Medium Article](https://medium.com/@dhyeymodi21/building-a-house-price-prediction-app-from-dataset-to-deployment-aebf68a9ae5c)
 - **API Endpoint**: [House Price Prediction API](https://house-price-prediction-1-kmgf.onrender.com/predict)
 - **Web Application**: [House Price Prediction Web App](https://house-price-prediction1.netlify.app)
-- **Kaggle Dataset**: [Ames Housing Dataset](https://www.kaggle.com/competitions/home-data-for-ml-course)
+- **Kaggle Dataset**: [Housing Prices Competition for Kaggle Learn Users](https://www.kaggle.com/competitions/home-data-for-ml-course)
 
 ## Table of Contents
 1. Overview
