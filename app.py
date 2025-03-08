@@ -1,33 +1,30 @@
 import joblib
 import pandas as pd
 from flask import Flask, request, jsonify
-from flask_cors import CORS  # Import CORS
+from flask_cors import CORS
 import numpy as np
 import logging
+import os
 
-# Load the saved model for testing
-data = joblib.load("../models/house_price_model.pkl")
-print(data) # Print the loaded model to verify
-
-# Initialize Flask app
-app = Flask(__name__)
-
-# Enable CORS for all routes
-CORS(app)  
-
-# Configure logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+# Get the absolute path of the model
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "../models/house_price_model.pkl")
 
 # Load the trained model
 try:
-    model = joblib.load("../models/house_price_model.pkl")
+    model = joblib.load(MODEL_PATH)
     logging.info("Model loaded successfully.")
 except FileNotFoundError:
     model = None
     logging.error("Model file not found. Please train and save the model.")
 
-# --- Prediction Endpoint ---
+# Initialize Flask app
+app = Flask(__name__)
+CORS(app)  # Enable CORS
 
+# Configure logging
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+
+# --- Prediction Endpoint ---
 @app.route('/predict', methods=['POST'])
 def predict():
     if model is None:
@@ -39,90 +36,24 @@ def predict():
             return jsonify({"error": "Invalid or missing JSON input"}), 400
 
         expected_features = [
-    "MSSubClass",
-    "MSZoning",
-    "LotFrontage",
-    "LotArea",
-    "Street",
-    "LotShape",
-    "LandContour",
-    "Utilities",
-    "LotConfig",
-    "LandSlope",
-    "Neighborhood",
-    "Condition1",
-    "Condition2",
-    "BldgType",
-    "HouseStyle",
-    "OverallQual",
-    "OverallCond",
-    "YearBuilt",
-    "YearRemodAdd",
-    "RoofStyle",
-    "RoofMatl",
-    "Exterior1st",
-    "Exterior2nd",
-    "MasVnrType",
-    "MasVnrArea",
-    "ExterQual",
-    "ExterCond",
-    "Foundation",
-    "BsmtQual",
-    "BsmtCond",
-    "BsmtExposure",
-    "BsmtFinType1",
-    "BsmtFinSF1",
-    "BsmtFinType2",
-    "BsmtFinSF2",
-    "BsmtUnfSF",
-    "TotalBsmtSF",
-    "Heating",
-    "HeatingQC",
-    "CentralAir",
-    "Electrical",
-    "1stFlrSF",
-    "2ndFlrSF",
-    "LowQualFinSF",
-    "GrLivArea",
-    "BsmtFullBath",
-    "BsmtHalfBath",
-    "FullBath",
-    "HalfBath",
-    "BedroomAbvGr",
-    "KitchenAbvGr",
-    "KitchenQual",
-    "TotRmsAbvGrd",
-    "Functional",
-    "Fireplaces",
-    "FireplaceQu",
-    "GarageType",
-    "GarageYrBlt",
-    "GarageFinish",
-    "GarageCars",
-    "GarageArea",
-    "GarageQual",
-    "GarageCond",
-    "PavedDrive",
-    "WoodDeckSF",
-    "OpenPorchSF",
-    "EnclosedPorch",
-    "3SsnPorch",
-    "ScreenPorch",
-    "PoolArea",
-    "MiscVal",
-    "MoSold",
-    "YrSold",
-    "SaleType",
-    "SaleCondition",
-    "TotalSF"
-]
-
+            "MSSubClass", "MSZoning", "LotFrontage", "LotArea", "Street", "LotShape", "LandContour",
+            "Utilities", "LotConfig", "LandSlope", "Neighborhood", "Condition1", "Condition2",
+            "BldgType", "HouseStyle", "OverallQual", "OverallCond", "YearBuilt", "YearRemodAdd",
+            "RoofStyle", "RoofMatl", "Exterior1st", "Exterior2nd", "MasVnrType", "MasVnrArea",
+            "ExterQual", "ExterCond", "Foundation", "BsmtQual", "BsmtCond", "BsmtExposure",
+            "BsmtFinType1", "BsmtFinSF1", "BsmtFinType2", "BsmtFinSF2", "BsmtUnfSF", "TotalBsmtSF",
+            "Heating", "HeatingQC", "CentralAir", "Electrical", "1stFlrSF", "2ndFlrSF", "LowQualFinSF",
+            "GrLivArea", "BsmtFullBath", "BsmtHalfBath", "FullBath", "HalfBath", "BedroomAbvGr",
+            "KitchenAbvGr", "KitchenQual", "TotRmsAbvGrd", "Functional", "Fireplaces", "FireplaceQu",
+            "GarageType", "GarageYrBlt", "GarageFinish", "GarageCars", "GarageArea", "GarageQual",
+            "GarageCond", "PavedDrive", "WoodDeckSF", "OpenPorchSF", "EnclosedPorch", "3SsnPorch",
+            "ScreenPorch", "PoolArea", "MiscVal", "MoSold", "YrSold", "SaleType", "SaleCondition",
+            "TotalSF"
+        ]
 
         missing_features = [feat for feat in expected_features if feat not in data]
         if missing_features:
             return jsonify({"error": f"Missing features: {missing_features}"}), 400
-
-        # Add more robust input validation here (type checking, range checks)
 
         input_data = pd.DataFrame([data], columns=expected_features)
         prediction = model.predict(input_data)
@@ -132,6 +63,7 @@ def predict():
     except Exception as e:
         logging.error(f"An error occurred: {str(e)}")
         return jsonify({"error": str(e)}), 500
-    
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=False) # change debug=False for production    
+
+# Run the app with gunicorn in production
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
