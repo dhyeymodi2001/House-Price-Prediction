@@ -16,7 +16,7 @@ const HeroSection = () => {
         </h1>
         <p>
           Get accurate house price predictions using our advanced algorithm that
-          analyzes 20+ different features.
+          analyzes 60+ different features.
         </p>
         <button className="download-btn" onClick={handleScrollToSection}>
           Let's Go!

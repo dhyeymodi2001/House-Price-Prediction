@@ -1,4 +1,3 @@
-/* Footer.css */
 .footer {
   background-color: #1a202c; /* Dark background */
   color: #e2e8f0; /* Light gray text color */
@@ -107,4 +106,80 @@
   margin-top: 2rem;
   font-size: 0.875rem;
   color: #a0aec0; /* Light gray text */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer {
+    background-color: #1a202c; /* Dark background */
+    color: #e2e8f0; /* Light gray text color */
+    padding: 0.5rem 0;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-links,
+  .footer-resources,
+  .footer-social {
+    flex: none;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .footer-heading2 {
+    font-size: 2rem;
+  }
+
+  .footer-heading {
+    font-size: 1.25rem;
+  }
+
+  .footer-link {
+    font-size: 1rem;
+  }
+
+  .footer-social-icons {
+    gap: 0.5rem;
+  }
+
+  .footer-social-icon {
+    font-size: 1.25rem;
+  }
+
+  .footer-bottom {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-container {
+    padding: 0 1rem;
+  }
+
+  .footer-heading2 {
+    font-size: 1.75rem;
+  }
+
+  .footer-heading {
+    font-size: 1.125rem;
+  }
+
+  .footer-link {
+    font-size: 0.95rem;
+  }
+
+  .footer-social-icons {
+    gap: 0.25rem;
+  }
+
+  .footer-social-icon {
+    font-size: 1.2rem;
+  }
+
+  .footer-bottom {
+    font-size: 0.7rem;
+  }
 }
