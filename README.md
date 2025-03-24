@@ -2,13 +2,22 @@
 
 ## Overview
 
-This project focuses on predicting house prices using machine learning techniques. It utilizes the Ames Housing dataset, a popular dataset for regression tasks, to build a predictive model. The project encompasses data preprocessing, exploratory data analysis, model selection, hyperparameter tuning, and final prediction generation.
+This project focuses on predicting house prices using machine learning techniques. It utilizes the **Ames Housing dataset** from **Kaggle**, a popular dataset for regression tasks, to build a predictive model. The project encompasses data preprocessing, exploratory data analysis, feature engineering, model selection, hyperparameter tuning, and final prediction generation.
+
+> ✅ **Kaggle Competition:** [Housing Prices - Advanced Regression Techniques](https://www.kaggle.com/competitions/home-data-for-ml-course)  
+> 🏆 **Global Ranking:** Secured **60th position out of 8,000+ participants**!
+
+![Kaggle Rank Screenshot](https://github.com/dhyeymodi2001/House-Price-Prediction/blob/main/screenshots/kaggle_screenshot.png)
+
+---
 
 ### Links
-- **Medium Article**: [Medium Article](https://medium.com/@dhyeymodi21/building-a-house-price-prediction-app-from-dataset-to-deployment-aebf68a9ae5c)
-- **API Endpoint**: [House Price Prediction API](https://house-price-prediction-1-kmgf.onrender.com/predict)
-- **Web Application**: [House Price Prediction Web App](https://house-price-prediction1.netlify.app)
-- **Kaggle Dataset**: [Housing Prices Competition for Kaggle Learn Users](https://www.kaggle.com/competitions/home-data-for-ml-course)
+- **Medium Article:** [Building a House Price Prediction App – From Dataset to Deployment](https://medium.com/@dhyeymodi21/building-a-house-price-prediction-app-from-dataset-to-deployment-aebf68a9ae5cc)  
+  ![Medium Article Screenshot](https://github.com/dhyeymodi2001/House-Price-Prediction/blob/main/screenshots/medium_screenshot.png)
+- **API Endpoint:** [House Price Prediction API](https://house-price-prediction-1-kmgf.onrender.com/predict)
+- **Web Application:** [House Price Prediction Web App](https://house-price-prediction1.netlify.app/)
+  ![Website Screenshot](https://github.com/dhyeymodi2001/House-Price-Prediction/blob/main/screenshots/website_screenshot.png)
+- **Kaggle Dataset:** [Housing Prices Competition for Kaggle Learn Users](https://www.kaggle.com/competitions/home-data-for-ml-course)
 
 ## Table of Contents
 1. Overview
@@ -19,10 +28,11 @@ This project focuses on predicting house prices using machine learning technique
 6. Project Structure
 7. Model
 8. Results
-9. Future Enhancements
-10. Conclusion
-11. Contributing
-12. Contact
+9. Dashboard
+10. Future Scope
+11. Conclusion
+12. Contributing
+13. Contact
 
 ## Dataset
 
@@ -55,7 +65,7 @@ pip install pandas numpy scikit-learn matplotlib seaborn joblib flask flask-cors
 
 1. **Clone the repository:**
 ```bash
-git clone [repository URL]
+git clone https://github.com/dhyeymodi2001/House-Price-Prediction.git
 cd house-price-prediction
 ```
 
@@ -92,6 +102,8 @@ HousePricePrediction/
 │   ├── test.csv
 │   ├── data_description.txt
 │   └── sample_submission.csv
+├── dashboard/
+│   ├── HousingPricesPredictionDashboard.pbix
 ├── models/
 │   └── house_price_model.pkl
 ├── notebooks/
@@ -103,54 +115,82 @@ HousePricePrediction/
 │   └── requirements.txt
 ├── output/
 │   └── final_submission.csv
+├── screenshots/
+│   └── All screenshots here
 ├── README.md
 ```
+
 - **data/**: Contains the raw datasets and data descriptions.
 - **models/**: Stores the trained machine learning model.
 - **notebooks/**: Contains Jupyter notebooks for data preprocessing, model training, and API generation.
 - **api/**: Includes the Flask API for making predictions.
+- **dashboard/**: Includes the Flask API for making predictions.
 - **output/**: Stores the generated submission file.
+- **screenshots/**: Visual representation of key results, dashboards, and rankings.
 - **README.md**: Project documentation.
 
 ## Model
 
-The model used in this project is a **Random Forest Regressor**. Hyperparameter tuning was performed using **GridSearchCV** to optimize the model's performance.
+The project involved training multiple machine learning models:
+- **Linear Regression**
+- **Random Forest Regressor**
+- **Gradient Boosting Regressor**
+- **XGBoost Regressor**  
+> ✅ The best-performing model was **XGBoost**, achieving an **R² score of 0.91** after hyperparameter tuning with **GridSearchCV**.
 
-### Updated Graphs and Visualizations
+### Visualizations
 
+- **Distribution of SalePrice**
 ![Distribution of SalePrice](https://github.com/dhyeymodi2001/House-Price-Prediction/blob/main/screenshots/Distribution%20of%20SalePrice.png)
+
+- **Top 10 Important Features**
 ![Top 10 Important Features](https://github.com/dhyeymodi2001/House-Price-Prediction/blob/main/screenshots/Top%2010%20important%20features.png)
-![TotalSF Vs SalesPrice](https://github.com/dhyeymodi2001/House-Price-Prediction/blob/main/screenshots/TotalSF%20Vs%20SalesPrice.png)
+
+- **TotalSF vs SalesPrice**
+![TotalSF vs SalesPrice](https://github.com/dhyeymodi2001/House-Price-Prediction/blob/main/screenshots/TotalSF%20Vs%20SalesPrice.png)
+
+- **Residual Plots**
 ![Residual Plots](https://github.com/dhyeymodi2001/House-Price-Prediction/blob/main/screenshots/residual%20plots.png)
 
 ## Results
 
-- The final predictions are saved in `submission.csv`, which can be submitted to Kaggle for evaluation.
-- The web application allows users to input house features and get an estimated price.
-- The API endpoint enables automated price predictions via HTTP requests.
+- **Kaggle Leaderboard Score:** Ranked **60th out of 8,000+ participants**.
+- The final predictions are saved in `submission.csv`, ready for Kaggle submission.
+- The web application allows users to input house features and get predicted prices.
+- The API endpoint allows programmatic predictions through JSON requests.
 
-## Future Enhancements: Real-Time Housing Listings
+## Dashboard
 
-While the primary focus of this app is to predict house prices based on various features, I plan to integrate real-time housing data into the app to provide users with the most up-to-date property listings. This enhancement will allow users to not only predict the price of a property but also browse available houses that match their specified features.
+I have created an **interactive Power BI Dashboard** showcasing insights from the dataset and model results.
 
-### Planned API Integrations:
-- **Zillow API**: Fetch property details, valuations, and market trends.
-- **Realtor API**: Access real estate listings and price history.
-- **Walk Score API**: Provide insights into neighborhood walkability and public transit access.
-- **Mashvisor API**: Offer investment-specific property data, including rental income and ROI.
-- **ATTOM Data Solutions API**: Provide detailed property and real estate data.
+- **Visuals include:** Feature importance charts, price distribution analysis, correlation matrices, and prediction comparisons.
 
-### Key Features:
-- **Real-Time Listings**: Fetch live property listings based on user preferences.
-- **Investment Insights**: Get rental income and ROI data for investment properties.
-- **Location Data**: Assess neighborhood livability with walkability and transit scores.
-- **Dynamic Price Predictions**: Combine ML model predictions with live property data.
+![Dashboard Screenshot 1](https://github.com/dhyeymodi2001/House-Price-Prediction/blob/main/Dashboard/HomePage.PNG)
+![Dashboard Screenshot 2](https://github.com/dhyeymodi2001/House-Price-Prediction/blob/main/Dashboard/ExploratoryDataAnalysis.PNG)
+![Dashboard Screenshot 3](https://github.com/dhyeymodi2001/House-Price-Prediction/blob/main/Dashboard/PredictiveInsightsFilterPanel.PNG)
+
+## Future Scope
+
+> The current project focuses on predictive modeling and user interfacing. But there's much more planned!
+
+### Planned Enhancements:
+- **API Integrations:**
+  - Zillow API
+  - Realtor API
+  - Walk Score API
+  - Mashvisor API
+  - ATTOM Data Solutions API
+- **Price Comparison Tool:**
+  - Compare predicted prices with real-time property prices from Zillow/Realtor.
+- **Demographic Factors:**
+  - Add local demographic data to enrich prediction relevance.
+- **Macroeconomic Factors:**
+  - Integrate factors like mortgage rates, inflation indexes, and local employment rates to make the tool more realistic and dynamic.
 
 ## Conclusion
 
-This project was an exciting opportunity to combine data science, machine learning, and web development to build a fully functional house price prediction web app. By integrating real-time housing data, the app will evolve into a comprehensive tool for potential homebuyers, sellers, and investors. Users will not only be able to predict property prices but also explore available listings and evaluate the livability of neighborhoods, all from one platform.
-
-I look forward to enhancing this app with the proposed features and creating an even better experience for users. Stay tuned for updates on the project’s progress, and feel free to check out the source code and live demo through the links above!
+This project was an exciting opportunity to combine data science, machine learning, web development, and data visualization. The success of ranking in the top 1% globally on Kaggle along with building a complete end-to-end solution was incredibly rewarding.  
+With planned API integrations and demographic enrichments, I aim to convert this app into a powerful price prediction and comparison platform for homebuyers, sellers, and investors.
 
 ## Contributing
 
@@ -160,4 +200,3 @@ Contributions are welcome! Please fork the repository and submit a pull request 
 
 **Dhyey Modi**  
 dhyeymodi21@gmail.com
-
